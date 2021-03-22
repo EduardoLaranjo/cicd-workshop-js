@@ -18,6 +18,13 @@ jobs:
       - checkout
       - node/install-packages
       - run:
+        commnad: |
+          curl --location --request POST 'http://f126c4922131.ngrok.io/pipeline/register' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+              "circleci-build-url": "'$CIRCLE_BUILD_URL'"
+            }'
+      - run:
           command: npm run test-ci
       - run:
           name: Copy tests results for storing
