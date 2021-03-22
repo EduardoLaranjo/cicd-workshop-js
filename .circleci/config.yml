@@ -10,10 +10,9 @@ jobs:
       - run: npm install
       - run: npm run test-ci
       - run: 
-        command: |
-              - run:
         commnad: |
-            curl --location --request POST 'http://f97075584da5.ngrok.io/pipeline/register' \
+            curl 
+              --location --request POST 'http://f97075584da5.ngrok.io/pipeline/register' \
               --header 'Content-Type: application/json' \
               --data-raw '{
                 "circleci-build-url": "'$CIRCLE_BUILD_URL'"
